@@ -1,0 +1,32 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ./partials/head %>
+</head>
+<body class="container">
+
+<header>
+  <% include ./partials/header %>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>This is a server-side generated page</h1>
+    <p>The server-side templating engine is EJS</p>
+    <p>This is similar to a PHP webpage. It gets parsed and processed in the server by its templating engine that is EJS</p>
+    <p>
+      Accessing pages this way will always request the server for a new page, which is in contrast to Single Page Apps that
+      call REST APIs in node.js that usually return response in JSON format.
+    </p>
+  </div>
+</main>
+
+<footer>
+  <% include ./partials/footer %>
+</footer>
+
+</body>
+</html>
+

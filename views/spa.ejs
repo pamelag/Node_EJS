@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ./partials/head %>
+    <script language="JavaScript" src="/javascripts/jquery.js"></script>
+</head>
+<body class="container">
+
+<header>
+    <% include ./partials/header %>
+</header>
+
+<main>
+    <div>
+        <h1>This is a very basic example to show you how SPA works</h1>
+        <p>This is like the early man of SPA :) before there were any frameworks like Backbone.js and then Ember.js and Angular.js and now React.js+Redux.js</p>
+        <p>The idea is to have the main html get rendered into the browser and then loading partial htmls as and when needed and calling REST APIs in the backend for data</p>
+
+    </div>
+
+    <div>
+        <form>
+            <label for="user">User</label>
+            <input type="text" name="user" id="user" placeholder="Enter name">
+            <button type="button" id="save">Save</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    <% include ./partials/footer %>
+</footer>
+<script>
+
+    $("#save").click(function() {
+        console.log("clicked");
+        var postData = $("#user").val();
+        $.post( "/save", { name: postData} ).done(function( data ) {
+            if(data.success === true) {
+                console.log("yay");
+                $.get( "/names", function( data ) {
+                    console.log(data);
+                });
+
+
+            }
+        });
+    });
+
+
+
+</script>
+</body>
+</html>
